@@ -11,8 +11,6 @@ interface PlatformIconListProps {
 }
 
 const PlatformIconList = ({ platforms }: PlatformIconListProps) => {
-	console.log(platforms)
-
 	const platformSlug: { [key: string]: IconType } = {
 		pc: FaWindows,
 		ios: FaApple,
