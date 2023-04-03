@@ -38,14 +38,14 @@ const useGame = () => {
 			})
 			.catch(error => {
 				if (error instanceof CanceledError) setError(error.message)
+
+				return () => {
+					controller.abort()
+				}
 			})
 			.finally(() => {
 				setLoading(false)
 			})
-
-		return () => {
-			controller.abort()
-		}
 	}, [])
 
 	return { games, error, loading }
