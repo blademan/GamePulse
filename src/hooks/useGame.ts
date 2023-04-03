@@ -3,16 +3,35 @@ import { useEffect, useState } from 'react'
 import { z } from 'zod'
 import apiClient from '../services/api-client'
 
-interface Game {
+export interface Platform {
+	id: number
+	name: string
+	slug: string
+}
+export interface Game {
 	id: number
 	name: string
 	background_image: string
+	metacritic: number
+	parent_platforms: {
+		platform: Platform
+	}[]
 }
 
 const GameSchema = z.object({
 	id: z.number(),
 	name: z.string(),
+	metacritic: z.number(),
 	background_image: z.string(),
+	parent_platforms: z.array(
+		z.object({
+			platform: z.object({
+				id: z.number(),
+				name: z.string(),
+				slug: z.string(),
+			}),
+		})
+	),
 })
 const GamesSchema = z.object({
 	count: z.number(),
