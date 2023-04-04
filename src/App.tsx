@@ -26,7 +26,7 @@ function App() {
 					<GenreList onSelectGenre={genre => setSelectedGenre(genre)} />
 				</GridItem>
 			</Show>
-			<GridItem h='max' gridArea='main'>
+			<GridItem gridArea='main'>
 				<GameGrid selectedGenre={selectedGenre} />
 			</GridItem>
 		</Grid>
