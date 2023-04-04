@@ -7,11 +7,10 @@ import GameCardSkeleton from './GameCard/GameCardSkeleton'
 const GameGrid = () => {
 	const { error, data, loading } = useGame()
 	const skeletonArray = [1, 2, 3, 4, 5, 6]
-	console.log(data)
 
 	if (error) return <div>Error: {error}</div>
 	return (
-		<SimpleGrid columns={{ sm: 1, md: 2, lg: 3 }} gap={5} padding={5}>
+		<SimpleGrid columns={{ sm: 1, md: 2, lg: 3 }} spacing={5} padding={5}>
 			{loading &&
 				skeletonArray.map((_, index) => (
 					<GameCardContainer key={index}>
