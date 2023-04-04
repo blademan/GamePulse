@@ -1,4 +1,4 @@
-import { HStack, Image, List, ListItem, Text } from '@chakra-ui/react'
+import { Center, HStack, Image, List, ListItem, Spinner, Text, VStack } from '@chakra-ui/react'
 import useGenre from '../hooks/useGenre'
 
 const GenreList = () => {
@@ -6,8 +6,13 @@ const GenreList = () => {
 
 	console.log(data)
 
-	if (loading) return <div>Loading...</div>
-	if (error) return <div>Error</div>
+	if (loading)
+		return (
+			<Center height={400}>
+				<Spinner />
+			</Center>
+		)
+	if (error) return null
 
 	return (
 		<List>
