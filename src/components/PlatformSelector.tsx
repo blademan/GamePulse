@@ -12,8 +12,6 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: PlatformSelect
 
 	if (error) return null
 
-	console.log(selectedPlatform)
-
 	return (
 		<Menu>
 			<MenuButton as={Button} rightIcon={<BsChevronDown />}>

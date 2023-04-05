@@ -1,5 +1,4 @@
-import { Button, Center, HStack, Image, List, ListItem, Spinner, Text, VStack } from '@chakra-ui/react'
-import { color } from 'framer-motion'
+import { Button, Center, HStack, Image, List, ListItem, Spinner } from '@chakra-ui/react'
 import { useState } from 'react'
 import useGenre, { Genre } from '../hooks/useGenre'
 
@@ -9,6 +8,7 @@ interface GenreListProps {
 
 const GenreList = ({ onSelectGenre }: GenreListProps) => {
 	const { error, data, loading } = useGenre()
+
 	const [activeButton, setActiveButton] = useState<number | null>(null)
 
 	const handleActiveButton = (genre: Genre) => {
