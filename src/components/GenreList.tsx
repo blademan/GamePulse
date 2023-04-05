@@ -15,7 +15,6 @@ const GenreList = ({ onSelectGenre }: GenreListProps) => {
 		setActiveButton(genre.id)
 		onSelectGenre(genre)
 	}
-	console.log(activeButton)
 
 	if (loading)
 		return (
