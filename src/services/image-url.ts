@@ -1,6 +1,7 @@
-// utilities for generating image urls
+import imagePlaceholder from '../assets/placeholder.webp'
+
 const getCroppedImageUrl = (url: string) => {
-	if (!url) return url
+	if (!url) return imagePlaceholder
 	const target = 'media/'
 	const index = url.indexOf(target) + target.length
 	const croppedUrl = url.slice(0, index) + 'crop/600/400/' + url.slice(index)
