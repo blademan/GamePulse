@@ -1,4 +1,4 @@
-import { Button, Center, HStack, Image, List, ListItem, Spinner } from '@chakra-ui/react'
+import { Button, Center, HStack, Heading, Image, List, ListItem, Spinner } from '@chakra-ui/react'
 import { useState } from 'react'
 import useGenre, { Genre } from '../hooks/useGenre'
 
@@ -25,23 +25,30 @@ const GenreList = ({ onSelectGenre }: GenreListProps) => {
 	if (error) return null
 
 	return (
-		<List>
-			{data.map(genre => (
-				<ListItem key={genre.id} paddingY={2}>
-					<HStack>
-						<Image boxSize={'32px'} src={genre.image_background} borderRadius={10} />
-						<Button
-							fontWeight={activeButton === genre.id ? 'bold' : 'normal'}
-							onClick={() => handleActiveButton(genre)}
-							fontSize={'md'}
-							variant={'link'}
-						>
-							{genre.name}
-						</Button>
-					</HStack>
-				</ListItem>
-			))}
-		</List>
+		<>
+			<Heading as={'h2'} size={'md'} paddingY={2}>
+				Genres
+			</Heading>
+			<List>
+				{data.map(genre => (
+					<ListItem key={genre.id} paddingY={2}>
+						<HStack>
+							<Image objectFit={'cover'} boxSize={'32px'} src={genre.image_background} borderRadius={10} />
+							<Button
+								textAlign={'left'}
+								whiteSpace={'normal'}
+								fontWeight={activeButton === genre.id ? 'bold' : 'normal'}
+								onClick={() => handleActiveButton(genre)}
+								fontSize={'md'}
+								variant={'link'}
+							>
+								{genre.name}
+							</Button>
+						</HStack>
+					</ListItem>
+				))}
+			</List>
+		</>
 	)
 }
 export default GenreList
