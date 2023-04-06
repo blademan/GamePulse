@@ -13,6 +13,8 @@ const SearchBar = ({ onSubmit }: SearchBarProps) => {
 			onSubmit={e => {
 				e.preventDefault()
 				onSubmit(ref.current?.value ?? '')
+
+				ref.current?.value && (ref.current.value = '')
 			}}
 		>
 			<InputGroup borderRadius={50}>
